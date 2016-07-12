@@ -1,0 +1,21 @@
+.tb1 {
+    	border-radius: 30px;
+    	background: #73AD21;
+    	padding: 20px; 
+	width: 300px;
+	height: 150px; 
+}
+#sub
+{
+	text-align:center;
+}
+#error{
+	color:red;
+}
+body{	
+	background-color:#4B088A;
+}
+h1{
+	color : cyan;
+	text-align : center;
+}

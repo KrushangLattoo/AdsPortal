@@ -1,0 +1,14 @@
+#category
+{	
+	border-radius: 15px;
+	display:inline-block;
+	background-color:#90EE90;
+	width:70%;
+	height:100%;
+	margin-left:30%;
+}
+#subcategory
+{	
+	float:left;
+	display:inline-block;
+}

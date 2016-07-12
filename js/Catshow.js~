@@ -1,0 +1,30 @@
+function addcatshow()
+{
+	document.getElementById("form").style.display="block";
+	document.getElementById("viewtable").style.display="none";
+}
+function viewcatshow()
+{
+	document.getElementById("viewtable").style.display="block";
+	document.getElementById("form").style.display="none";
+}
+function subaddshow()
+{
+	document.getElementById("subform").style.display="block";
+	document.getElementById("subviewtable").style.display="none";
+}
+function subviewshow()
+{
+	document.getElementById("subviewtable").style.display="block";
+	document.getElementById("subform").style.display="none";
+}
+function addshow()
+{
+	document.getElementById("form").style.display="block";
+	document.getElementById("viewtable").style.display="none";
+}
+function viewadshow()
+{
+	document.getElementById("viewtable").style.display="block";
+	document.getElementById("form").style.display="none";
+}

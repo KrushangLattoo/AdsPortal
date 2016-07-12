@@ -1,0 +1,45 @@
+<?php
+	/*ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);*/
+	class DB{
+		private $conn;
+		private $result;		
+		public function connect()
+		{
+			$servername = "localhost";
+			$username = "root";
+			$password = "root";
+
+			// Create connection
+		
+			$this->conn =  new mysqli($servername, $username, $password);
+			if ($this->conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			} 
+			
+    			
+			
+			// Check connection	
+			
+		}
+		public function disconnect()
+		{		
+			mysqli_close($this->conn);
+		}	
+		/*public function execute($sql)
+		{		
+			$this->conn->query($sql);
+			
+		}*/
+		public function selectexecute($sql)
+		{	echo $sql;
+			
+			$result=mysqli_query($sql);
+			if(!empty($result))
+				return $result;
+			else 
+				header('location:../html/categoryman.php');
+		}
+	}
+?>

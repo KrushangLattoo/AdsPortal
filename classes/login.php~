@@ -1,0 +1,50 @@
+<?php
+	$fid;
+	$fpass;
+	$member=array();	
+	$name = $nameErr = $pass = $passErr= "";
+	if($_SERVER["REQUEST_METHOD"]=="POST")
+	{	
+	
+	   	$file = explode( PHP_EOL, file_get_contents( "admin.txt" ));		
+	    	$line = null;
+		print_r ($file);
+		die();
+		if(empty($_POST['username']))
+		{
+			$nameErr="User name is required.";
+		}
+		else	
+		{
+			if(!preg_match("/^[a-zA-Z]*$/",$username))
+			{		
+				$nameErr="User name is invalid.";
+			}	
+		}
+		if(empty($_POST['pass']))
+		{
+			$passErr="Password is required.";
+			header("Location: ../html/login.php?nameErr="."$nameErr & passErr="."$passErr");
+		}
+		else	
+		{	
+			$pattern= $_POST['username'].",".$_POST['pass'];
+			echo $file;
+			foreach ( $file as $line ) 
+			{	
+	        		if ($pattern ==$file)
+				{
+					session_start();
+					$_SESSION["id"] = $_POST['username'] ;				
+					header('Location: ../html/dash.html');
+				}
+				else
+				{	
+					$unpa= "Username or Password does not match";
+					header("Location: ../html/login.php?nameErr="."$nameErr & passErr="."$passErr &unpa="."$unpa");
+				}
+			}		
+		}
+	}
+?>
+
