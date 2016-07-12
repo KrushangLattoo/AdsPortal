@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>Category Management</title>
+		<link href="../css/dash.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="../js/Catshow.js"></script>
+	</head>
+	<body>
+		<?php
+			if($_SERVER['REQUEST_METHOD']=="GET") {
+			$id=$_GET['id'];
+			include"../classes/db.php";
+			include "header.php";
+			include "sidebar.php";
+			$ob=new DB();
+			$ob->connect();
+			$sql="Select * from TheBigAds.Category where catid='".$id."'";
+			$result=$ob->selectexecute($sql);
+			while($row=$result->fetch_assoc())
+			{
+				$catname=$row["catname"];
+				$catslug=$row["catslug"];
+				$catkey=$row["catkey"];
+			}
+		      }
+		?>
+		<div id="category" >
+			<h1 id="bg">Categories</h1>
+			<br>
+			<div id="catoption">
+				&nbsp &nbsp &nbsp<a href="#" onclick="viewshow()">View Category</a>
+				&nbsp &nbsp &nbsp<a href="#" onclick="addshow()">Add Category</a>
+			</div>
+			<br><br><br><br>
+			<div id="form" >
+				<form action="../controller/editcat.php" method="post">	
+					<table align="center" id="tbcat">
+						<tr>
+							<td>Category ID:</td>
+							<td><input type="text" name="catid" value="<?php echo $id?>" readonly></td>
+						</tr>
+						<tr>
+							<td>Category Name:</td>
+							<td><input type="text" name="catname" value="<?php echo $catname?>"></td>
+						</tr>
+						<tr>
+							<td>Category Slug:</td>
+							<td><input type="text" name="catslug" value="<?php echo $catslug?>"></td>
+						</tr>
+						<tr>
+							<td>Category Keywords:</td>
+							<td><input type="text" name="catkey" value="<?php echo $catkey?>"></td>
+						</tr>
+						<tr>
+							<td>Category Icon:</td>
+							<td><input type="file" name="caticon"></td>
+						</tr>
+						<tr style="text-align:center">
+							<td colspan="2"><input type="submit" value="Edit Category">
+						</tr>
+					</table>
+				</form>
+			</div>	
+			<div id="viewtable" style="display:none">	
+				<table id="vct" align="center">
+					<tr>
+						<td>Category <br>ID:</td>
+						<td>Category <br>Name:</td>
+						<td>Category <br>Slug:</td>
+						<td>Category <br>Keywords:</td>
+						<td>Category <br>Icon:</td>
+					</tr>
+					<tr>
+							<?php
+								/*ini_set('display_errors', 1);
+								ini_set('display_startup_errors', 1);
+								error_reporting(E_ALL);*/
+								include"../classes/db.php";
+								$ob=new DB();
+								$ob->connect();
+								$sql="Select * from TheBigAds.Category";
+								$result=$ob->selectexecute($sql);
+								while($row=$result->fetch_assoc())
+								{ 
+									echo "<tr>";
+									echo "<td>".$row["catid"]."</td>";
+									echo "<td>".$row["catname"]."</td>";
+									echo "<td>".$row["catslug"]."</td>";
+									echo "<td>".$row["catkey"]."</td>";
+									echo "<td>".$row["caticon"]."</td>";
+								   echo "<td><a href='../html/editcatm.php?id=".$row['catid']."'>EDIT</a></td>";
+									echo "<td><a href='catdel.php'>Delete</a></td>";
+									echo "</tr>";				
+								}
+							?>
+						</td>
+					</tr>
+				</table>					
+			</div>
+		</div>
+	</body>
+<html>

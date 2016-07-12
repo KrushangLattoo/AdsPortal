@@ -1,0 +1,26 @@
+<?php
+	/*ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);*/	
+	include '../classes/db.php';
+	$catman = $catslug = $catkey = $caticon = $sql= "";
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{		
+		$catid=$_POST['catid'];
+		$catname=$_POST['catname'];
+		$catslug=$_POST['catslug'];
+		$catkey=$_POST['catkey'];
+		$caticonname=$_FILES['caticon']['name'];
+		$caticontemp=$_FILES['caticon']['temp_name'];
+		$caticontype=$_FILES['caticon']['type'];
+		echo $caticonname;
+		echo $caticontemp;
+		echo $caticontype;
+		
+		$sql="UPDATE thebigads.Category set catname='$catname', catslug='$catslug', catkey='$catkey' WHERE catid='$catid'";
+		$ob = new DB();
+		$ob->connect();
+		$ob->selectexecute($sql);
+
+	}
+?>

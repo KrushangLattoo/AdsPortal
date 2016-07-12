@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>DashBord</title>
+		<link href="../css/dash.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header id="header">
+			<h1>Dashboard<h1>
+		</header>
+		<div id=afterheader>	
+		     <h3><img src="../image/240_F_89009948_q5MgVdZY1kOQM8mBCRbiScUv0IiLGEFx.jpg" height="20px" width="20px"/>&nbsp Control Pannel</h3>
+		</div>
+		<div id="sidecontent">
+			<div id="bg">Content</div>
+		     <ul><a href=""><img src="../image/pencil-black-and-white-pencil_1_black_white_art.png" height="20px" width="20px"/>&nbsp Ad Management</a></ul> 
+			<ul><a href=""><img src="../image/images.jpg"  height="20px" width="20px">Customer Management</a></ul>
+<ul><a href=""><img src="../image/Finance_Shield_Safe_Secure_Lock_Protect_Money_Investment_Payment-128.png"  height="20px" width="20px">Payment Management</a></ul>
+			<ul><a href=""><img src="../image/images.png"  height="20px" width="20px">Subscription Management</a></ul>
+
+		<div>
+	</body>
+</html>
